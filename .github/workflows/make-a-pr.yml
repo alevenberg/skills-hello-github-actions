@@ -6,8 +6,7 @@ on: push # for testing
 #   schedule:
 #     - cron: '0 12 * * MON'
 permissions:
-   contents: read
-   contents: write
+   contents: read, write
    pull-requests: write
 
 jobs:
