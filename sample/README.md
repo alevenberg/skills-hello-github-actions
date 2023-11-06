@@ -27,3 +27,7 @@ rm -rf bazel-*
 chmod +x  ./scripts/run.sh
 ./scripts/run.sh
 ```
+
+```shell
+rm report.txt
+```
