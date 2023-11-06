@@ -6,7 +6,7 @@ on: push # for testing
 #   schedule:
 #     - cron: '0 12 * * MON'
 permissions:
-   contents: read
+   contents: write
    pull-requests: write
 
 jobs:
@@ -21,8 +21,6 @@ jobs:
         run: ./scripts/run.sh
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
-        with: 
-          push-to-fork: alevenberg/skills-hello-github-actions
       - name: Verify everything compiles with Bazel
         run: cd sample && bazel build all
       - name: Verify everything compiles with CMake
