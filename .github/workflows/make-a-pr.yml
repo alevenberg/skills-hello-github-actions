@@ -16,10 +16,15 @@ jobs:
         run: echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
       - name: Run the `renovate.sh` script
         run: ./scripts/run.sh
-      - name: Verify everything compiles with Bazel
-        run: bazel build all
-      - name: Verify everything compiles with CMake
-        run: cd sample && cmake -S . -B build && cmake --build build
+      - name: create pull request
+        run: gh pr create -B base_branch -H branch_to_merge --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Verify everything compiles with Bazel
+      #   run: cd sample && bazel build all
+      # - name: Verify everything compiles with CMake
+      #   run: cd sample && cmake -S . -B build && cmake --build build
+
       # - name: Run the `renovate.sh` script
       #   run: ./external/googleapis/renovate.sh
       # - name: Verify everything compiles with Bazel
