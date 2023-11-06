@@ -1,5 +1,6 @@
 name: "Update the google apis"
 
+on: push # for testing
 # on:
 #   # Create the PR once a week at 12:00 on Monday.
 #   schedule:
